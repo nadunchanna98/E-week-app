@@ -1,18 +1,17 @@
 import React, { useState, useEffect } from 'react'
 import { View, Text, StyleSheet, FlatList ,Image } from 'react-native'
 import axios from 'axios';
-const data = require('../../assets/data/posts.json');
 import BASE_URL from '../../Common/BaseURL';
 import backgroundImage from '../../assets/Eweek.png'; 
 
 
-const AllPostContainer = () => {
+const UpComingContainer = () => {
 
   const [post, setPost] = useState([]);
 
   useEffect(() => {
 
-    axios.get(`${BASE_URL}posts`)
+    axios.get(`${BASE_URL}futureevents`)
       .then(res => {
         setPost( res.data );
       })
@@ -36,27 +35,19 @@ const AllPostContainer = () => {
               <View style={styles.post}> 
                 <Image style={styles.image} source={{uri: item.image}} />
                 <Text style={styles.event}>{item.event} {item.gender}  {item.type}</Text>
-                <Text style={styles.firstN}>First Place  =  {item.firstN} {item.firstT}</Text>
-                <Text style={styles.secondN}>Second Place  =  {item.secondN} {item.secondT}</Text>
-                <Text style={styles.thirdN}>Third Place  =  {item.thirdN} {item.thirdT}</Text>
-                <Text style={styles.date}>Date =  {
-                
-               Date(item.date)
-                }
-                </Text>
+                <Text style={styles.date}>Date =  {item.date}</Text>
+                <Text style={styles.date}>{item.location}</Text>
                 <Text style={styles.date}>{item.description}</Text>  
-                
-                {/* <Text style={styles.date}>{item.image}</Text> */}
               </View>
           }
-          keyExtractor={item => item._id}  
+          keyExtractor={item => item._id}  //
         />
       </View>
     </View>
   )
 }
 
-export default AllPostContainer
+export default UpComingContainer
 
 
 const styles = StyleSheet.create({
@@ -74,33 +65,16 @@ event: {
 
 },
 
-firstN: {
-  fontSize:14,
-  fontWeight: "700",
-  marginBottom: 5
-},
-
-secondN: {
-  fontSize: 14,
-  fontWeight: "700",
-  marginBottom: 5
-},
-
-thirdN: {
-  fontSize: 14,
-  fontWeight: "700",
-  marginBottom: 5
-},
 
 date: {
-  fontSize: 12,
-  fontWeight: "500",
+  fontSize: 15,
+  fontWeight: "700",
   marginBottom: 5
 },
 
 description: {
-  fontSize: 12,
-  fontWeight: "500",
+  fontSize: 15,
+  fontWeight: "700",
   marginBottom: 5
 },
 

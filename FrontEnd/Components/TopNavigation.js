@@ -43,7 +43,7 @@ function TopNavigation({ index, setIndex }) {
             }
 
             <Text style={{ ...styles.center, color: "white" }}>
-                {index === 0 ? "Home" : (index === 1 ? "All Results " : "Upcoming")}
+                {index === 0 ? "Home" : (index === 1 ? "All Results " : "Future")}
             </Text>
 
             {index === 0 ? (
@@ -62,7 +62,7 @@ function TopNavigation({ index, setIndex }) {
                     <Text
                         style={{ ...styles.text, color: "white" }}
                     >
-                        UpComing
+                        Future
                     </Text>
                     <SimpleLineIcons name="arrow-right" size={15} color="#007FFF"   />
                 </TouchableOpacity>
