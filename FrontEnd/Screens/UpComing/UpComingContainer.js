@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import { View, Text, StyleSheet, FlatList ,Image } from 'react-native'
+import { View, Text, StyleSheet, FlatList, Image } from 'react-native'
 import axios from 'axios';
 import BASE_URL from '../../Common/BaseURL';
-import backgroundImage from '../../assets/Eweek.png'; 
+import backgroundImage from '../../assets/Eweek.png';
 
 
 const UpComingContainer = () => {
@@ -13,7 +13,7 @@ const UpComingContainer = () => {
 
     axios.get(`${BASE_URL}futureevents`)
       .then(res => {
-        setPost( res.data );
+        setPost(res.data);
       })
       .catch(err => {
         console.log(err);                  //clean up function
@@ -21,24 +21,24 @@ const UpComingContainer = () => {
     return () => {
       setPost([]);
     }
-    
+
   }, []);
 
   return (
     <View style={styles.AllPostContainer}>
 
       <View >
-        <FlatList 
+        <FlatList
           data={post}
-          renderItem={({ item  }) =>
-           
-              <View style={styles.post}> 
-                <Image style={styles.image} source={{uri: item.image}} />
-                <Text style={styles.event}>{item.event} {item.gender}  {item.type}</Text>
-                <Text style={styles.date}>Date =  {item.date}</Text>
-                <Text style={styles.date}>{item.location}</Text>
-                <Text style={styles.date}>{item.description}</Text>  
-              </View>
+          renderItem={({ item }) =>
+
+            <View style={styles.post}>
+              <Image style={styles.image} source={{ uri: item.image }} />
+              <Text style={styles.event}>{item.event} {item.gender}  {item.type}</Text>
+              <Text style={styles.date}>Date =  {item.date}</Text>
+              <Text style={styles.date}>{item.location}</Text>
+              <Text style={styles.date}>{item.description}</Text>
+            </View>
           }
           keyExtractor={item => item._id}  //
         />
@@ -52,31 +52,31 @@ export default UpComingContainer
 
 const styles = StyleSheet.create({
 
-AllPostContainer: {
-  //backgroundImage: `url(${backgroundImage})`,
-  flex: 1,
-  backgroundColor: '#F9F9F9',
-},
+  AllPostContainer: {
+    //backgroundImage: `url(${backgroundImage})`,
+    flex: 1,
+    backgroundColor: '#F9F9F9',
+  },
 
-event: {
-  fontSize: 20,
-  fontWeight: "700",
-  marginBottom: 10
+  event: {
+    fontSize: 20,
+    fontWeight: "700",
+    marginBottom: 10
 
-},
+  },
 
 
-date: {
-  fontSize: 15,
-  fontWeight: "700",
-  marginBottom: 5
-},
+  date: {
+    fontSize: 15,
+    fontWeight: "700",
+    marginBottom: 5
+  },
 
-description: {
-  fontSize: 15,
-  fontWeight: "700",
-  marginBottom: 5
-},
+  description: {
+    fontSize: 15,
+    fontWeight: "700",
+    marginBottom: 5
+  },
 
   post: {
     //backgroundColorImage: backgroundImage,

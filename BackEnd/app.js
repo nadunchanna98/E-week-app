@@ -7,7 +7,7 @@ const mongoose  = require('mongoose');
 const cors  = require('cors');  // for cross origin resource sharing 
 
 
-mongoose.set('strictQuery', true); // for strict query  , for clear DeprecationWarning mongodb
+mongoose.set('strictQuery', false); // for strict query  , for clear DeprecationWarning mongodb
 
 const api = process.env.API_URL; // http://localhost:3000/api/
 

@@ -9,10 +9,10 @@ const MainPage = () => {
   return (
     <View >
       <Chart />
-      <views  style={styles.topic} >
+      <View style={styles.topic} >
         <Text style={styles.latest} >Last Update</Text>
-        <LatestUpdate/>
-      </views>
+        {/* <LatestUpdate /> */}
+      </View>
 
     </View>
   )
@@ -31,10 +31,10 @@ const styles = StyleSheet.create({
     fontFamily: 'sans-serif-light',
   },
 
-  
+
   topic: {
     flex: 1,
-    justifyContent: 'center', 
+    justifyContent: 'center',
     padding: 8,
     paddingTop: 6,
     textAlign: 'center',
