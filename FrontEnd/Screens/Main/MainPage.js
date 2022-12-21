@@ -1,14 +1,14 @@
 import { View, Text, StyleSheet } from 'react-native'
 import React from 'react'
 import Chart from './Chart'
-import LatestUpdate from './LatestUpdate'
+// import LatestUpdate from './LatestUpdate'
 
 
 
 const MainPage = () => {
   return (
     <View >
-      <Chart />
+      <Chart/>
       <View style={styles.topic} >
         <Text style={styles.latest} >Last Update</Text>
         {/* <LatestUpdate /> */}

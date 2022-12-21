@@ -6,7 +6,8 @@ function Upcoming() {
   return (
 
       <View>
-        <UpComingContainer />
+       <UpComingContainer />
+        <Text>hello upcoming</Text>
       </View>
 
   )

@@ -1,6 +1,6 @@
 import { MaterialCommunityIcons, SimpleLineIcons, AntDesign } from '@expo/vector-icons';
 import React from 'react'
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity ,Dimensions } from 'react-native'
 
 function TopNavigation({ index, setIndex }) {
     return (
@@ -20,12 +20,11 @@ function TopNavigation({ index, setIndex }) {
                     style={styles.left}
                     onPress={() => setIndex(index === 0 ? 1 : 0)}
                 >
-                    <SimpleLineIcons name="arrow-left" size={15} color="White" />
+                    <SimpleLineIcons name="arrow-left" size={15} color="White"  />
                     <Text
-                        style={{ ...styles.text, color: "white" }}
+                        style={{ ...styles.text, color: "white" ,textAlignVertical : "center"}}
                     >
-                        Home    {//back button
-                        }           
+                    <View><Text style={{ ...styles.text, color: "white" }}  >Home</Text></View>    
                     </Text>
                 </TouchableOpacity>
             ) : (
@@ -34,7 +33,7 @@ function TopNavigation({ index, setIndex }) {
                 >
                     <SimpleLineIcons name="arrow-left" size={15} color="White" />
                     <Text style={{ ...styles.text, color: "white"  }}>
-                        All 
+                        <View><Text style={{ ...styles.text, color: "white" }}  >All </Text></View> 
                     </Text>
                 </TouchableOpacity>
 
@@ -42,27 +41,27 @@ function TopNavigation({ index, setIndex }) {
                 )
             }
 
-            <Text style={{ ...styles.center, color: "white" }}>
+            <Text style={{ ...styles.center, color: "white"  }}>
                 {index === 0 ? "Home" : (index === 1 ? "All Results " : "Future")}
             </Text>
 
             {index === 0 ? (
 
                 <TouchableOpacity style={styles.right}  onPress={() => setIndex(index === 0 ? 1 : 0)} >
-                    <Text style={{ ...styles.text, color: "white" }}>
+                    <Text style={{ ...styles.text, color: "white"}}>
                         All
                         <SimpleLineIcons name="arrow-right" size={15} color="White" />
                     </Text>
                 </TouchableOpacity>
             ) : ( index === 1 ? (
                 <TouchableOpacity
-                    style={{...styles.right,marginRight: 50}}
+                    style={{...styles.right}}
                     onPress={() => setIndex(index === 1 ? 2 : 1)}
                 >
                     <Text
                         style={{ ...styles.text, color: "white" }}
                     >
-                        Future
+                        <View><Text style={{ ...styles.text, color: "white" ,   }}>New</Text></View> 
                     </Text>
                     <SimpleLineIcons name="arrow-right" size={15} color="#007FFF"   />
                 </TouchableOpacity>
@@ -87,6 +86,9 @@ function TopNavigation({ index, setIndex }) {
 const styles = StyleSheet.create({
 
     container: {
+        marginTop: Dimensions.get('window').height * 0.045,
+        width: Dimensions.get('window').width * 0.9,
+        height: Dimensions.get('window').height * 0.09,
         flexDirection: "row",
         justifyContent: "space-between",
         padding: 10,
@@ -106,16 +108,24 @@ const styles = StyleSheet.create({
     left: {
         flexDirection: "row",
         alignItems: "center",
-        width: 40,
-        justifyContent: "space-between",
+        width: 40,  
+        justifyContent: "center",
+        flexDirection: "row",
+
+       
+
     },
     text: {
         fontSize: 16,
         fontWeight: "700",
+        alignItems: "center",
+
     },
     right: {
+
+
         width: 40,
-        alignItems: "flex-end",
+        alignItems: "center",
         justifyContent: "space-between",
         flexDirection: "row",
         

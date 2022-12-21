@@ -1,4 +1,3 @@
-
 import * as React from 'react';
 import { View, useWindowDimensions } from 'react-native';
 import { TabView, SceneMap } from 'react-native-tab-view';
@@ -26,7 +25,7 @@ export default function TabViewExample() {
 
   return (
 
-    <TabView
+    <TabView 
       navigationState={{ index, routes }}
       renderScene={renderScene}
       onIndexChange={setIndex}
@@ -36,3 +35,4 @@ export default function TabViewExample() {
 
   );
 }
+

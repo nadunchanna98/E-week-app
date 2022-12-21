@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Text, View, StyleSheet, Dimensions, ScrollView } from "react-native";
-import {   BarChart } from 'react-native-chart-kit';
+import { BarChart } from 'react-native-chart-kit';
 
 export default class Chart extends React.Component {
 
@@ -36,7 +36,7 @@ export default class Chart extends React.Component {
                         <BarChart 
   
                             data={this.data}
-                            width={Dimensions.get('window').width - 16}
+                            width={Dimensions.get('window').width * 0.9}
                             height={220}
                             showValuesOnTopOfBars={true}
                             chartConfig={{
@@ -65,11 +65,11 @@ export default class Chart extends React.Component {
 }
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
         justifyContent: 'center', 
-        padding: 8,
         paddingTop: 6,
+        textAlign: 'center',
+        width: Dimensions.get('window').width*0.9,
+        //height: Dimensions.get('window').height*0.9,
         // backgroundColor: '#ecf0f1',
-        
     },
 });
