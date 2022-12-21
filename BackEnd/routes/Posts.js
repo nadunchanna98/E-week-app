@@ -7,7 +7,7 @@ require('dotenv/config');
 // Get all Post
 router.get(`/`, async (req, res) => {
 
-    const postList = await Post.find();
+    const postList = await Post.find().sort({$natural:-1}) ;
 
     if (!postList) {
         res.status(500).json({ success: false })
@@ -26,6 +26,20 @@ router.get(`/:id`, async (req, res) => {
     res.send(post);
 
 })
+
+//get latest Post 
+router.get(`/latest/`, async (req, res) => {
+
+    const post = await Post.find().sort({"datetime": -1}).limit(1);
+
+    if (!post) {
+        res.status(500).json({ success: false })
+        console.log('error')
+    }
+    res.send(post);
+
+})
+
 
 
 //add new post according to the catogory 

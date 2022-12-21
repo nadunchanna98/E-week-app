@@ -6,15 +6,16 @@ import BASE_URL from '../../Common/BaseURL';
 import backgroundImage from '../../assets/Eweek.png'; 
 
 
-const AllPostContainer = () => {
+const LatestUpdate = () => {
 
   const [post, setPost] = useState([]);
 
   useEffect(() => {
 
-    axios.get(`${BASE_URL}posts`)
+    axios.get(`${BASE_URL}posts/latest`)
       .then(res => {
         setPost( res.data );
+        console.log(res.data);
       })
       .catch(err => {
         console.log(err);                  //clean up function
@@ -52,7 +53,7 @@ const AllPostContainer = () => {
   )
 }
 
-export default AllPostContainer
+export default LatestUpdate
 
 
 const styles = StyleSheet.create({

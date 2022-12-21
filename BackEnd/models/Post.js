@@ -12,7 +12,6 @@ const postSchema = mongoose.Schema({
     },
     type: {
         type: String,
-        required: true
     },
     firstN: {
         type: String,
