@@ -1,0 +1,83 @@
+[{
+    "_id": {
+      "$oid": "5f15d8852a025143f9593a7c"
+    },
+    "image": "https://www.thepapare.com/wp-content/uploads/6d283a0eb007683e94c72317741975ae-1.jpg",
+    "event": "Running",
+    "gender": "Male",
+    "type" : "singles",
+    "firstN": "nuwan kumarasinghe ",
+    "secondN": "kasun bandara",
+    "thirdN": "saman nirmala",
+    "firstT": "E-19",
+    "secondT": "E-18",
+    "thirdT": "E-20",
+    "date": "2023-01-07 14:40:50",
+    "description": "The most hard FIFA ever",
+    "category": {
+      "$oid": "5f15d5cdcb4a6642bddc0fe9"
+    },
+    "__v": 0
+  },{
+    "_id": {
+      "$oid": "5f15d8852a025143f9573a7c"
+    },
+    "image": "https://www.thepapare.com/wp-content/uploads/6d283a0eb007683e94c72317741975ae-1.jpg",
+    "event": "Jumping",
+    "gender": "Female",
+    "type" : "singles",
+    "firstN": "saduni perera",
+    "secondN": "amali bandara",
+    "thirdN": "niemani nirmala",
+    "firstT": "E-21",
+    "secondT": "E-18",
+    "thirdT": "E-19",
+    "date": "2023-01-09 11:00:50",
+    "description": "rainy day",
+    "category": {
+      "$oid": "5f15d5cdcb4a6642bddc0fe9"
+    },
+    "__v": 0
+},{
+    "_id": {
+      "$oid": "5f15d8852a025143f9573a7c"
+    },
+    "image": "https://miro.medium.com/max/1200/1*9JdIsCt4tZKgVz7QTTRftw.jpeg",
+    "event": "Table tenis",
+    "gender": "male",
+    "type" : "singles",
+    "firstN": "asaduni perera",
+    "secondN": "hamali bandara",
+    "thirdN": "samani nirmala",
+    "firstT": "E-19",
+    "secondT": "E-18",
+    "thirdT": "E-21",
+    "date": "2023-01-09 11:00:50",
+    "description": "rainy day",
+    "category": {
+      "$oid": "5f15d5cdcb4a6642bddc0fe9"
+    },
+    "__v": 0
+},
+{
+    "_id": {
+      "$oid": "5f15d8852a025143f9573a7c"
+    },
+    "image": "https://cdn.mos.cms.futurecdn.net/AGPer5HX2cvJ8m7QUx5pTK.jpg",
+    "event": "Football",
+    "gender": "male",
+    "type" : "team",
+    "firstN": "",
+    "secondN": "",
+    "thirdN": "",
+    "firstT": "E-19",
+    "secondT": "E-18",
+    "thirdT": "E-21",
+    "date": "2023-01-09 11:00:50",
+    "description": "rainy day",
+    "category": {
+      "$oid": "5f15d5cdcb4a6642bddc0fe9"
+    },
+    "__v": 0
+}
+]

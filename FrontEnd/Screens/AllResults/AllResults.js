@@ -1,10 +1,13 @@
 import { Text, View } from 'react-native'
 import React from 'react'
+import AllPostContainer from '../AllResults/AllPostContainer'
+
+
 
 const AllResults = () => {
   return (
     <View>
-      <Text>AllResults</Text>
+      <AllPostContainer/>
     </View>
   )
 }
