@@ -19,16 +19,15 @@ app.use(bodyParser.json());  // for parsing application/json
 app.use(morgan('tiny'));  // for logging requests to the console (express4)
 
 
-
-
 //Routers 
 const postRoutes = require('./routes/Posts');
 const futureEventRoutes = require('./routes/FutureEvents');
+const teamsRoutes = require('./routes/Teams');
 
 //api routes  
 app.use(`${api}/posts`, postRoutes);
 app.use(`${api}/futureevents`, futureEventRoutes);
-
+app.use(`${api}/teams`, teamsRoutes);
 
 //server
 app.listen(3000, ()=>{
