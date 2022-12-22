@@ -2,7 +2,6 @@ import { View, Text, StyleSheet, ScrollView ,Dimensions } from 'react-native'
 import React from 'react'
 import Chart from './Chart'
 import Marks from './Marks'
-import Data from '../Data/Data'
 // import LatestUpdate from './LatestUpdate'
 
 
