@@ -1,81 +1,98 @@
 import { MaterialCommunityIcons, SimpleLineIcons, AntDesign } from '@expo/vector-icons';
 import React from 'react'
-import { View, Text, StyleSheet, TouchableOpacity ,Dimensions } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity, Dimensions, Image } from 'react-native'
+import Eweek from '../assets/Eweek.png';
+
+
 
 function TopNavigation({ index, setIndex }) {
+
+    //refrsh
+
     return (
 
         <View style={{ ...styles.container, backgroundColor: "#FF1E1E" }}>
 
             {index === 0 ? (
-                <TouchableOpacity style={styles.left}>
-                    <Text style={{ ...styles.text, color: "white" }}>
-                        <MaterialCommunityIcons name="theme-light-dark"
-                            size={20}
-                            color="white" />
-                    </Text>
-                    
-                </TouchableOpacity>) : ( index === 1 ? (
-                <TouchableOpacity
-                    style={styles.left}
-                    onPress={() => setIndex(index === 0 ? 1 : 0)}
-                >
-                    <SimpleLineIcons name="arrow-left" size={15} color="White"  />
-                    <Text
-                        style={{ ...styles.text, color: "white" ,textAlignVertical : "center"}}
-                    >
-                    <View><Text style={{ ...styles.text, color: "white" }}  >Home</Text></View>    
-                    </Text>
-                </TouchableOpacity>
-            ) : (
-                <TouchableOpacity style={styles.left}
-                    onPress={() => setIndex(index === 2 ? 1 : 2)}
-                >
-                    <SimpleLineIcons name="arrow-left" size={15} color="White" />
-                    <Text style={{ ...styles.text, color: "white"  }}>
-                        <View><Text style={{ ...styles.text, color: "white" }}  >All </Text></View> 
-                    </Text>
-                </TouchableOpacity>
 
-            )
+
+
+                <TouchableOpacity style={styles.logo}>
+                    <Image source={Eweek} style={styles.logo} />
+                    {/* <AntDesign name="reload1" size={25} color="#FFF" /> */}
+
+
+
+                </TouchableOpacity>) : (index === 1 ? (
+                    <TouchableOpacity
+                        style={styles.left}
+                        onPress={() => setIndex(index === 0 ? 1 : 0)}
+                    >
+                        <SimpleLineIcons name="arrow-left" size={15} color="white" />
+                        <Text
+                            style={{ ...styles.text, color: "white", textAlignVertical: "center" }}
+                        >
+                            <View><Text style={{ ...styles.text, color: "white" }}  >Home</Text></View>
+                        </Text>
+                    </TouchableOpacity>
+                ) : (
+                    <TouchableOpacity style={styles.left}
+                        onPress={() => setIndex(index === 2 ? 1 : 2)}
+                    >
+                        <SimpleLineIcons name="arrow-left" size={15} color="White" />
+                        <Text style={{ ...styles.text, color: "white" }}>
+                            <View><Text style={{ ...styles.text, color: "white" }}  >All </Text></View>
+                        </Text>
+                    </TouchableOpacity>
+
                 )
+            )
             }
 
-            <Text style={{ ...styles.center, color: "white"  }}>
+            <Text style={{ ...styles.center, color: "white" }}>
                 {index === 0 ? "Home" : (index === 1 ? "All Results " : "Future")}
             </Text>
 
             {index === 0 ? (
 
-                <TouchableOpacity style={styles.right}  onPress={() => setIndex(index === 0 ? 1 : 0)} >
-                    <Text style={{ ...styles.text, color: "white"}}>
+                <TouchableOpacity style={styles.right} onPress={() => setIndex(index === 0 ? 1 : 0)} >
+                    <Text style={{ ...styles.text, color: "white" }}>
                         All
-                        <SimpleLineIcons name="arrow-right" size={15} color="White" />
+                        <SimpleLineIcons name="arrow-right" size={15} color="#fff" />
                     </Text>
                 </TouchableOpacity>
-            ) : ( index === 1 ? (
+            ) : (index === 1 ? (
+
                 <TouchableOpacity
-                    style={{...styles.right}}
+                    style={{ ...styles.right, marginEnd: 18 }}
                     onPress={() => setIndex(index === 1 ? 2 : 1)}
                 >
-                    <Text
-                        style={{ ...styles.text, color: "white" }}
-                    >
-                        <View><Text style={{ ...styles.text, color: "white" ,   }}>New</Text></View> 
+                    <Text style={{ ...styles.text, color: "white" }} >
+                        <View><Text style={{ ...styles.new, color: "white" }}>New</Text></View>
                     </Text>
-                    <SimpleLineIcons name="arrow-right" size={15} color="#007FFF"   />
+
+                    <SimpleLineIcons name="arrow-right" size={15} color="#fff" />
                 </TouchableOpacity>
-            ) : ( 
+            ) : (
+
                 <TouchableOpacity style={styles.right}
-                    // onPress={() => }
-                    >
+                // onPress={() => }
+                >
                     <Text style={{ ...styles.text, color: "white" }}>
-                    <AntDesign name="reload1" size={15} color="#007FFF" />
+
+
+                        {/* <MaterialCommunityIcons name="theme-light-dark"
+                            size={20}
+                            color="white" /> */}
+                        <AntDesign name="infocirlce" size={24} color="white"   
+                        onPress={() => alert("All right reserved to E-week 2022  Faculty of Engineering  University of Jaffna .")}
+                        />
+
                     </Text>
-                    </TouchableOpacity>
-             )
-              
-             )
+                </TouchableOpacity>
+            )
+
+            )
             }
 
 
@@ -85,16 +102,28 @@ function TopNavigation({ index, setIndex }) {
 
 const styles = StyleSheet.create({
 
+
+    //top bar logo
+
+    logo: {
+        width: 50,
+        height: 50,
+        resizeMode: 'contain',
+        marginTop: 0,
+        marginBottom: 0,
+    },
+
     container: {
         marginTop: Dimensions.get('window').height * 0.045,
         width: Dimensions.get('window').width * 0.9,
         height: Dimensions.get('window').height * 0.09,
         flexDirection: "row",
         justifyContent: "space-between",
-        padding: 10,
+        paddingLeft: 10,
+        paddingBottom: 0,
+        paddingTop: 0,
         alignItems: "center",
-        borderBottomColor: "black",
-        borderBottomWidth: 0.5,
+
     },
     center: {
         paddingBottom: 6,
@@ -108,11 +137,11 @@ const styles = StyleSheet.create({
     left: {
         flexDirection: "row",
         alignItems: "center",
-        width: 40,  
+        width: 40,
         justifyContent: "center",
         flexDirection: "row",
 
-       
+
 
     },
     text: {
@@ -121,6 +150,13 @@ const styles = StyleSheet.create({
         alignItems: "center",
 
     },
+    new: {
+        fontSize: 16,
+        fontWeight: "700",
+        alignItems: "center",
+        marginRight: 10,
+    },
+
     right: {
 
 
@@ -128,9 +164,10 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "space-between",
         flexDirection: "row",
-        
+
     },
-});
+
+})
 
 
 export default TopNavigation

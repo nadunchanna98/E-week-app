@@ -36,9 +36,9 @@ const AllPostContainer = () => {
               <Text style={styles.firstN}>First Place  =  {item.firstN} {item.firstT}</Text>
               <Text style={styles.secondN}>Second Place  =  {item.secondN} {item.secondT}</Text>
               <Text style={styles.thirdN}>Third Place  =  {item.thirdN} {item.thirdT}</Text>
-              <Text style={styles.date}>Date =  {
+              <Text style={styles.date}>{
 
-                Date(item.date)
+                Date(item.date).slice(0, 21)
               }
               </Text>
               <Text style={styles.date}>{item.description}</Text>
@@ -74,25 +74,25 @@ const styles = StyleSheet.create({
   },
 
   firstN: {
-    fontSize: 14,
+    fontSize: 15,
     fontWeight: "700",
     marginBottom: 5
   },
 
   secondN: {
-    fontSize: 14,
+    fontSize: 15,
     fontWeight: "700",
     marginBottom: 5
   },
 
   thirdN: {
-    fontSize: 14,
+    fontSize: 15,
     fontWeight: "700",
     marginBottom: 5
   },
 
   date: {
-    fontSize: 12,
+    fontSize: 15,
     fontWeight: "500",
     marginBottom: 5
   },

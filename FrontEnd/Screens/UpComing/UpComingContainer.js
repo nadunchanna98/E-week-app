@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { View, Text, StyleSheet, FlatList, Image,Dimensions } from 'react-native'
+import { View, Text, StyleSheet, FlatList, Image, Dimensions } from 'react-native'
 import axios from 'axios';
 import BASE_URL from '../../Common/BaseURL';
 
@@ -33,9 +33,11 @@ const UpComingContainer = () => {
             <View style={styles.post}>
               <Image style={styles.image} source={{ uri: item.image }} />
               <Text style={styles.event}>{item.event} {item.gender}  {item.type}</Text>
-              <Text style={styles.date}>Date =  {item.date}</Text>
+              <Text style={styles.date}>{
+                Date(item.date).slice(0, 21)
+              }</Text>
               <Text style={styles.date}>{item.location}</Text>
-              <Text style={styles.date}>{item.description}</Text>
+              <Text style={styles.description}>{item.description}</Text>
             </View>
           }
           keyExtractor={item => item._id}  //
@@ -52,13 +54,13 @@ const styles = StyleSheet.create({
 
   AllPostContainer: {
     //backgroundImage: `url(${backgroundImage})`,
-    width: Dimensions.get('window').width*0.9,
-    height: Dimensions.get('window').height*0.9,
+    width: Dimensions.get('window').width * 0.9,
+    height: Dimensions.get('window').height * 0.9,
     backgroundColor: '#F9F9F9',
   },
 
   event: {
-    fontSize: 20,
+    fontSize: 22,
     fontWeight: "700",
     marginBottom: 10
 
@@ -66,7 +68,7 @@ const styles = StyleSheet.create({
 
 
   date: {
-    fontSize: 15,
+    fontSize: 18,
     fontWeight: "700",
     marginBottom: 5
   },
