@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, FlatList ,Image } from 'react-native'
 import axios from 'axios';
 const data = require('../../assets/data/posts.json');
 import BASE_URL from '../../Common/BaseURL';
-import backgroundImage from '../../assets/Eweek.png'; 
+
 
 
 const LatestUpdate = () => {

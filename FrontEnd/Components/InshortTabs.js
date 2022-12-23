@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, useWindowDimensions , SafeAreaView } from 'react-native';
+import {  useWindowDimensions } from 'react-native';
 import { TabView, SceneMap } from 'react-native-tab-view';
 import AllResults from "../Screens/AllResults/AllResults";
 import MainPage from "../Screens/Main/MainPage";
