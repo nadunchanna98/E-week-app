@@ -7,20 +7,15 @@ import Eweek from '../assets/icon.png';
 
 function TopNavigation({ index, setIndex }) {
 
-    //refrsh
 
     return (
-
         <View style={{ ...styles.container, backgroundColor: "#FF1E1E" }}>
 
             {index === 0 ? (
 
-
-
                 <TouchableOpacity style={styles.logo}>
                     <Image source={Eweek} style={styles.logo} />
                     {/* <AntDesign name="reload1" size={25} color="#FFF" /> */}
-
 
 
                 </TouchableOpacity>) : (index === 1 ? (
@@ -102,9 +97,6 @@ function TopNavigation({ index, setIndex }) {
 
 const styles = StyleSheet.create({
 
-
-    //top bar logo
-
     logo: {
         width: 50,
         height: 50,
@@ -114,7 +106,6 @@ const styles = StyleSheet.create({
     },
 
     container: {
-        marginTop: Dimensions.get('window').height * 0.045,
         width: Dimensions.get('window').width * 0.9,
         height: Dimensions.get('window').height * 0.09,
         flexDirection: "row",
@@ -158,7 +149,6 @@ const styles = StyleSheet.create({
     },
 
     right: {
-
 
         width: 40,
         alignItems: "center",

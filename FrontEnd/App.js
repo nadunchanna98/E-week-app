@@ -1,14 +1,12 @@
-import { StyleSheet, Text, View , SafeAreaView } from 'react-native';
+import { StyleSheet, SafeAreaView } from 'react-native';
 import InshortTabs from './Components/InshortTabs';
 
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <SafeAreaView> 
+      <SafeAreaView  style={styles.container}  > 
       <InshortTabs />
       </SafeAreaView>
-    </View>
   );
 }
 

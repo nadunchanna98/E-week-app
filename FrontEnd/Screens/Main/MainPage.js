@@ -2,23 +2,20 @@ import { View, Text, StyleSheet, ScrollView ,Dimensions } from 'react-native'
 import React from 'react'
 import Chart from './Chart'
 import Marks from './Marks'
-// import LatestUpdate from './LatestUpdate'
-
-
 
 const MainPage = () => {
   return (
-
     <ScrollView  style={styles.container}   >
-    
+
+      
       <View >
 
       <Text style={styles.latest} >Total Marks</Text>
         <Chart />
-        {/* <Data />   */}
+
         <View style={styles.topic} >
           <Text style={styles.latest} >Last Update</Text>
-          {/* <LatestUpdate /> */}
+   
         </View>
       </View>
 

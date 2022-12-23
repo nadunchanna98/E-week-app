@@ -40,7 +40,7 @@ const UpComingContainer = () => {
               <Text style={styles.description}>{item.description}</Text>
             </View>
           }
-          keyExtractor={item => item._id}  //
+          keyExtractor={item => item._id}  
         />
       </View>
     </View>
@@ -53,7 +53,6 @@ export default UpComingContainer
 const styles = StyleSheet.create({
 
   AllPostContainer: {
-    //backgroundImage: `url(${backgroundImage})`,
     width: Dimensions.get('window').width * 0.9,
     height: Dimensions.get('window').height * 0.9,
     backgroundColor: '#F9F9F9',

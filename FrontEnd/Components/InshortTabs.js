@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {  useWindowDimensions } from 'react-native';
+import {  SafeAreaView, useWindowDimensions } from 'react-native';
 import { TabView, SceneMap } from 'react-native-tab-view';
 import AllResults from "../Screens/AllResults/AllResults";
 import MainPage from "../Screens/Main/MainPage";
@@ -24,6 +24,8 @@ export default function TabViewExample() {
   ]);
 
   return (
+
+<SafeAreaView  >
   <TabView 
       navigationState={{ index, routes }}
       renderScene={renderScene}
@@ -31,6 +33,8 @@ export default function TabViewExample() {
       initialLayout={{ width: layout.width }}
       renderTabBar ={ ()=><TopNavigation index = {index} setIndex = {setIndex} />}
     />
+</SafeAreaView>
+
   );
 }
 

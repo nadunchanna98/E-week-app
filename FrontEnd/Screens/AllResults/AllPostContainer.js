@@ -59,10 +59,8 @@ export default AllPostContainer
 const styles = StyleSheet.create({
 
   AllPostContainer: {
-    //backgroundImage: `url(${backgroundImage})`,
     width: Dimensions.get('window').width*0.9,
     height: Dimensions.get('window').height*0.9,
-    
     backgroundColor: '#F9F9F9',
   },
 
@@ -104,7 +102,7 @@ const styles = StyleSheet.create({
   },
 
   post: {
-    //backgroundColorImage: backgroundImage,
+ 
     flexDirection: 'column',
     backgroundColor: 'white',
     alignItems: 'center',
