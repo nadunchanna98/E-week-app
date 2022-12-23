@@ -1,7 +1,7 @@
 import { MaterialCommunityIcons, SimpleLineIcons, AntDesign } from '@expo/vector-icons';
 import React from 'react'
 import { View, Text, StyleSheet, TouchableOpacity, Dimensions, Image } from 'react-native'
-import Eweek from '../assets/Eweek.png';
+import Eweek from '../assets/icon.png';
 
 
 
