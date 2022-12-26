@@ -59,6 +59,7 @@ const styles = StyleSheet.create({
   },
 
   event: {
+    textTransform:  'capitalize',
     fontSize: 22,
     fontWeight: "700",
     marginBottom: 10
@@ -73,6 +74,7 @@ const styles = StyleSheet.create({
   },
 
   description: {
+    textTransform:  'capitalize',
     fontSize: 15,
     fontWeight: "700",
     marginBottom: 5

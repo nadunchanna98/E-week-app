@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { View, Text, StyleSheet, FlatList, Image , Dimensions } from 'react-native';
-import { MaterialCommunityIcons ,FontAwesome5 ,Ionicons } from '@expo/vector-icons'; 
+import { FontAwesome5  } from '@expo/vector-icons'; 
 import axios from 'axios';
 import BASE_URL from '../../Common/BaseURL';
 
@@ -90,6 +90,7 @@ const styles = StyleSheet.create({
   },
 
   event: {
+    textTransform:  'capitalize',
     fontSize: 20,
     fontWeight: "700",
     marginBottom: 10
@@ -97,6 +98,7 @@ const styles = StyleSheet.create({
   },
 
   firstN: {
+    textTransform:  'capitalize',
     fontSize: 17,
     padding : 3,
     fontWeight: "700",
@@ -104,6 +106,7 @@ const styles = StyleSheet.create({
   },
 
   secondN: {
+    textTransform:  'capitalize',
     fontSize: 17,
     padding : 3,
     fontWeight: "700",
@@ -111,6 +114,7 @@ const styles = StyleSheet.create({
   },
 
   thirdN: {
+    textTransform:  'capitalize',
     fontSize: 17,
     padding : 3,
     fontWeight: "700",
@@ -124,6 +128,7 @@ const styles = StyleSheet.create({
   },
 
   description: {
+    textTransform:  'capitalize',
     fontSize: 12,
     fontWeight: "400",
     marginBottom: 5

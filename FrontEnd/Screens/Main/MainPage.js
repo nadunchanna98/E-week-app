@@ -32,7 +32,7 @@ const MainPage = () => {
 
       <View >
       <Text style={styles.date} >Last updated {event} {"\n"} at {Date(date).slice(3, 21)}  </Text>
-        <Text style={styles.latest} >Dash Board</Text>
+        {/* <Text style={styles.latest} >Dash Board</Text> */}
         <Chart />
 
         <View style={styles.topic} >
@@ -68,6 +68,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: "700",
     marginTop: 16,
+    marginBottom: 16,
     fontFamily: 'sans-serif-light',
   },
 
