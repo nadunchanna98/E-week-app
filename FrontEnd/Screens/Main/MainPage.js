@@ -1,30 +1,50 @@
-import { View, Text, StyleSheet, ScrollView ,Dimensions } from 'react-native'
-import React from 'react'
+import { View, Text, StyleSheet, ScrollView, Dimensions } from 'react-native'
+import React ,  { useState, useEffect } from 'react'
 import Chart from './Chart'
 import Marks from './Marks'
+import axios from 'axios';
+import BASE_URL from '../../Common/BaseURL';
 
 const MainPage = () => {
+
+    const [date , setDate] = useState('waiting for data');
+    const [event ,setEvent ] = useState('');
+
+    useEffect(() => {
+
+      axios.get(`${BASE_URL}latest/`)
+          .then(res => {
+             setDate(res.data[0].date);
+             setEvent(res.data[0].event);
+          })
+          .catch(err => {
+              console.log(err);                  //clean up function
+          })
+      return () => {
+        setDate('waiting for data');
+      }
+  }
+      , []);
+
   return (
-    <ScrollView  style={styles.container}   >
 
-      
+    <ScrollView style={styles.container}   >
+
       <View >
-
-      <Text style={styles.latest} >Total Marks</Text>
+      <Text style={styles.date} >Last updated {event} {"\n"} at {Date(date).slice(3, 21)}  </Text>
+        <Text style={styles.latest} >Dash Board</Text>
         <Chart />
 
         <View style={styles.topic} >
-          <Text style={styles.latest} >Last Update</Text>
-   
+          <Text style={styles.latest} >Total Marks</Text>
+          
         </View>
+
       </View>
 
-    
       <View style={styles.post} >
         <Marks />
       </View>
-
-
 
     </ScrollView>
   )
@@ -42,6 +62,16 @@ const styles = StyleSheet.create({
     marginTop: 16,
     fontFamily: 'sans-serif-light',
   },
+
+  date: {
+    textAlign: 'center',
+    fontSize: 14,
+    fontWeight: "700",
+    marginTop: 16,
+    fontFamily: 'sans-serif-light',
+  },
+
+
 
   post: {
     //backgroundColorImage: backgroundImage,
@@ -68,7 +98,7 @@ const styles = StyleSheet.create({
   container: {
     paddingTop: 6,
     textAlign: 'center',
-    width: Dimensions.get('window').width*0.9,
+    width: Dimensions.get('window').width * 0.9,
   }
 })
 

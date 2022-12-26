@@ -18,7 +18,7 @@ router.get(`/`, async (req, res) => {
 // Get total marks
 router.get(`/total/`, async (req, res) => {
 
-    const totalList = await Teams.find({},{_id: 0,total: 1 , team: 1});
+    const totalList = await Teams.find({},{_id: 0,total: 1 , team: 1}).sort({"total" : -1});
 
     if (!totalList) {
         res.status(500).json({ success: false })
@@ -75,7 +75,6 @@ router.post('/post/', async (req, res) => {
 
 //update the student
 router.put('/update/:id', async (req, res) => {
-
 
     const marks = await Teams.findByIdAndUpdate(
         req.params.id,

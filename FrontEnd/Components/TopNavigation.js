@@ -45,7 +45,7 @@ function TopNavigation({ index, setIndex }) {
             }
 
             <Text style={{ ...styles.center, color: "white" }}>
-                {index === 0 ? "Home" : (index === 1 ? "All Results " : "Future")}
+                {index === 0 ? "Home" : (index === 1 ? "Summary " : "Upcoming Events")}
             </Text>
 
             {index === 0 ? (

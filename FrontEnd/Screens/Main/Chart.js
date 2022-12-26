@@ -30,15 +30,10 @@ export default function Chart() {
 
     useEffect(() => {
 
-        axios.get(`${BASE_URL}teams/total`)
+        axios.get(`${BASE_URL}teams`)
             .then(res => {
                 setData(res.data);
 
-
-
-
-
-                
             })
             .catch(err => {
                 console.log(err);                  //clean up function

@@ -3,15 +3,13 @@ import { View, Text, StyleSheet, ScrollView, Dimensions } from 'react-native'
 import axios from 'axios';
 import BASE_URL from '../../Common/BaseURL';
 
-
 const Marks = () => {
 
     const [marks, setMarks] = useState([]);
 
-
     useEffect(() => {
 
-        axios.get(`${BASE_URL}teams/`)
+        axios.get(`${BASE_URL}teams/total`)
             .then(res => {
                 setMarks(res.data);
             })
@@ -31,7 +29,7 @@ const Marks = () => {
             {marks.map((item, index) => {
                 return (
                     <View style={styles.bag} key={index}>
-                        <Text style={styles.team}> Team :  {item.team}</Text>
+                        <Text style={styles.team}> {item.team}</Text>
                         <Text style={styles.marks}>  {item.total}</Text>
                         <Text style={styles.text}> ( Total Marks ) </Text>
 
@@ -58,9 +56,10 @@ const styles = StyleSheet.create({
 
 
     team: {
-        fontSize: 25,
+        fontSize: 30,
         fontWeight: "700",
-        marginBottom: 5
+        marginBottom: 5,
+        color: 'red',
     },
 
     marks: {

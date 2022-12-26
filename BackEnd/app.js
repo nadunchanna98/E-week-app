@@ -23,11 +23,13 @@ app.use(morgan('tiny'));  // for logging requests to the console (express4)
 const postRoutes = require('./routes/Posts');
 const futureEventRoutes = require('./routes/FutureEvents');
 const teamsRoutes = require('./routes/Teams');
+const LatestRoutes = require('./routes/Latest');
 
 //api routes  
 app.use(`${api}/posts`, postRoutes);
 app.use(`${api}/futureevents`, futureEventRoutes);
 app.use(`${api}/teams`, teamsRoutes);
+app.use(`${api}/latest`, LatestRoutes);
 
 //server
 app.listen(3000, ()=>{

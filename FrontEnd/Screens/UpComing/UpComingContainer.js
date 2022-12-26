@@ -36,8 +36,8 @@ const UpComingContainer = () => {
               <Text style={styles.date}>{
                 Date(item.date).slice(0, 21)
               }</Text>
-              <Text style={styles.date}>{item.location}</Text>
               <Text style={styles.description}>{item.description}</Text>
+              <Text style={styles.date}>{item.location}</Text>
             </View>
           }
           keyExtractor={item => item._id}  
@@ -91,12 +91,12 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     borderWidth: 4,
     borderColor: '#FF1E1E',
-    padding: 10,
+    padding: Dimensions.get('window').width * 0.05,
   },
 
   image: {
-    width: 320,
-    height: 180,
+    width: Dimensions.get('window').width * 0.7,
+    height: Dimensions.get('window').height *0.7 / 3,
     borderRadius: 20,
     borderWidth: 1,
     marginBottom: 10,

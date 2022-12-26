@@ -27,20 +27,6 @@ router.get(`/:id`, async (req, res) => {
 
 })
 
-//get latest Post 
-router.get(`/latest/`, async (req, res) => {
-
-    const post = await Post.find().sort({"datetime": -1}).limit(1);
-
-    if (!post) {
-        res.status(500).json({ success: false })
-        console.log('error')
-    }
-    res.send(post);
-
-})
-
-
 
 //add new post according to the catogory 
 router.post('/post/', async (req, res) => {
