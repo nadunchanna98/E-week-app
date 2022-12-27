@@ -7,8 +7,8 @@ import BASE_URL from '../../Common/BaseURL';
 
 const MainPage = () => {
 
-    const [date , setDate] = useState('waiting for data');
-    const [event ,setEvent ] = useState('');
+    const [date , setDate] = useState();
+    const [event ,setEvent ] = useState("");
 
     useEffect(() => {
 
@@ -21,7 +21,7 @@ const MainPage = () => {
               console.log(err);                  //clean up function
           })
       return () => {
-        setDate('waiting for data');
+        setDate();
       }
   }
       , []);
@@ -31,19 +31,33 @@ const MainPage = () => {
     <ScrollView style={styles.container}   >
 
       <View >
-      <Text style={styles.date} >Last updated {event} {"\n"} at {Date(date).slice(3, 21)}  </Text>
+      
         {/* <Text style={styles.latest} >Dash Board</Text> */}
-        <Chart />
+
+
+        <View>
+          
+          {
+           event === '' ? <Text style={styles.wait}  >Loading...</Text>
+            : <Text style={styles.date} >Last updated {event} {"\n"} at {Date(date).slice(3, 21)}  </Text> 
+            
+          }
+             
+        </View>
+
+        {
+          event === '' ? <Text style={styles.wait}  >Loading...</Text> : <Chart />
+        }
+
 
         <View style={styles.topic} >
           <Text style={styles.latest} >Total Marks</Text>
-          
         </View>
 
       </View>
 
-      <View style={styles.post} >
-        <Marks />
+      <View style={styles.post} > 
+        <Marks/>
       </View>
 
     </ScrollView>
@@ -72,10 +86,20 @@ const styles = StyleSheet.create({
     fontFamily: 'sans-serif-light',
   },
 
+  wait: {
+    textAlign: 'center',
+    fontSize: 20,
+    fontWeight: "700",
+    color: 'red',
+    marginTop: 16,
+    marginBottom: 16,
+    fontFamily: 'sans-serif-light',
+  },
+
 
 
   post: {
-    //backgroundColorImage: backgroundImage,
+    
     flexDirection: 'column',
     backgroundColor: 'white',
     alignItems: 'center',
@@ -105,3 +129,4 @@ const styles = StyleSheet.create({
 
 
 
+// E-week 2K22 Faculty of Engineering University of Jaffna created by Nadun Channa and Team 

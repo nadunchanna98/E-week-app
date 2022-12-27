@@ -84,7 +84,6 @@ const styles = StyleSheet.create({
 
 
   AllPostContainer: {
-    marginTop:StatusBar.currentHeight,
     width: Dimensions.get('window').width*0.9,
     height: Dimensions.get('window').height*0.9,
     backgroundColor: '#F9F9F9',

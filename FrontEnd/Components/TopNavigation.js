@@ -80,7 +80,7 @@ function TopNavigation({ index, setIndex }) {
                             size={20}
                             color="white" /> */}
                         <AntDesign name="infocirlce" size={24} color="white"   
-                        onPress={() => alert("Created by Nadun Channa for \nE-week 2K22 \nFaculty of Engineering \nUniversity of Jaffna .")}
+                        onPress={() => alert("E-week 2K22 \nFaculty of Engineering \nUniversity of Jaffna \nCreated by Nadun Channa.")}
                         />
 
                     </Text>

@@ -1,20 +1,20 @@
-import { StyleSheet, SafeAreaView ,StatusBar } from 'react-native';
+import { StyleSheet,View ,StatusBar } from 'react-native';
 import InshortTabs from './Components/InshortTabs';
-
 
 export default function App() {
   return (
-      <SafeAreaView  style={styles.container}  > 
+      <View style={styles.container}  > 
+        <StatusBar  backgroundColor="#000" barStyle="default" />
       <InshortTabs />
-      </SafeAreaView>
+      </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    marginTop:StatusBar.currentHeight,
-    alignItems: 'center',
-    justifyContent: 'center',
+    flex: 1,  
+    // marginTop:StatusBar.currentHeight *0.01,
+    alignItems: 'center', // aligns items horizontally in the center of the screen 
+    justifyContent: 'center',  // This is the important line for vertical centering of the content in the container 
   },
 });
