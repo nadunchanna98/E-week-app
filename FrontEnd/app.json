@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "FrontEnd",
-    "slug": "FrontEnd",
+    "name": "E-week",
+    "slug": "E-week",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -18,7 +18,8 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "Eweek"
     },
     "android": {
       "adaptiveIcon": {
@@ -32,7 +33,7 @@
     },
     "extra": {
       "eas": {
-        "projectId": "15dc5be2-6c80-4535-b9c6-0f0629d7b491"
+        "projectId": "2a40210a-8ba2-4c09-ad9a-7b57b09f68d3"
       }
     }
   }

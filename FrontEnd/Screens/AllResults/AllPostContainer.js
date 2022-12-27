@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { View, Text, StyleSheet, FlatList, Image , Dimensions } from 'react-native';
+import { View, Text, StyleSheet, FlatList, Image , Dimensions , SafeAreaView ,StatusBar } from 'react-native';
 import { FontAwesome5  } from '@expo/vector-icons'; 
 import axios from 'axios';
 import BASE_URL from '../../Common/BaseURL';
@@ -84,6 +84,7 @@ const styles = StyleSheet.create({
 
 
   AllPostContainer: {
+    marginTop:StatusBar.currentHeight,
     width: Dimensions.get('window').width*0.9,
     height: Dimensions.get('window').height*0.9,
     backgroundColor: '#F9F9F9',

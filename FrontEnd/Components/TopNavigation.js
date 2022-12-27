@@ -1,6 +1,6 @@
 import {  SimpleLineIcons, AntDesign } from '@expo/vector-icons';
 import React from 'react'
-import { View, Text, StyleSheet, TouchableOpacity, Dimensions, Image } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity, Dimensions, Image ,StatusBar } from 'react-native'
 import Eweek from '../assets/icon.png';
 
 
@@ -80,7 +80,7 @@ function TopNavigation({ index, setIndex }) {
                             size={20}
                             color="white" /> */}
                         <AntDesign name="infocirlce" size={24} color="white"   
-                        onPress={() => alert("All right reserved to E-week 2022  Faculty of Engineering  University of Jaffna .")}
+                        onPress={() => alert("Created by Nadun Channa for \nE-week 2K22 \nFaculty of Engineering \nUniversity of Jaffna .")}
                         />
 
                     </Text>
@@ -106,6 +106,7 @@ const styles = StyleSheet.create({
     },
 
     container: {
+        
         width: Dimensions.get('window').width * 0.9,
         height: Dimensions.get('window').height * 0.09,
         flexDirection: "row",
