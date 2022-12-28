@@ -17,7 +17,7 @@ const Marks = () => {
                 console.log(err);                  //clean up function
             })
         return () => {
-            setMarks([]);
+            setMarks([]); 
         }
     }
         , []);
@@ -34,12 +34,10 @@ const Marks = () => {
                         <Text style={styles.text}> ( Total Marks ) </Text>
 
                     </View>
-
-
-
                 )
             })
             }
+
         </ScrollView>
     )
 }
@@ -53,7 +51,6 @@ const styles = StyleSheet.create({
         width: Dimensions.get('window').width * 0.7,
 
     },
-
 
     team: {
         fontSize: 30,

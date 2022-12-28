@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Text, View, StyleSheet, Dimensions } from "react-native";
+import { Text, View, StyleSheet, Dimensions  } from "react-native";
 import { BarChart } from 'react-native-chart-kit';
 import BASE_URL from '../../Common/BaseURL';
 import axios from 'axios';
@@ -30,7 +30,7 @@ export default function Chart() {
 
     useEffect(() => {
 
-        axios.get(`${BASE_URL}teams`)
+        axios.get(`${BASE_URL}teams/total`)
             .then(res => {
                 setData(res.data);
 

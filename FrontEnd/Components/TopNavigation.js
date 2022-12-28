@@ -15,7 +15,7 @@ function TopNavigation({ index, setIndex }) {
 
                 <TouchableOpacity style={styles.logo}>
                     <Image source={Eweek} style={styles.logo} />
-                    {/* <AntDesign name="reload1" size={25} color="#FFF" /> */}
+                    
 
 
                 </TouchableOpacity>) : (index === 1 ? (

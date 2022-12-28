@@ -1,64 +1,88 @@
-import { View, Text, StyleSheet, ScrollView, Dimensions } from 'react-native'
-import React ,  { useState, useEffect } from 'react'
+import { View, Text, StyleSheet, ScrollView, Dimensions, TouchableOpacity ,RefreshControl } from 'react-native'
+import React, { useState, useEffect , createContext, useContext } from 'react'
 import Chart from './Chart'
 import Marks from './Marks'
 import axios from 'axios';
 import BASE_URL from '../../Common/BaseURL';
 
+
 const MainPage = () => {
 
-    const [date , setDate] = useState();
-    const [event ,setEvent ] = useState("");
+  const [date, setDate] = useState();
+  const [event, setEvent] = useState("");
+  const [refresh , setRefresh] = useState(false);
 
-    useEffect(() => {
 
-      axios.get(`${BASE_URL}latest/`)
-          .then(res => {
-             setDate(res.data[0].date);
-             setEvent(res.data[0].event);
-          })
-          .catch(err => {
-              console.log(err);                  //clean up function
-          })
-      return () => {
-        setDate();
-      }
+  const pullMe = () => {
+
+    setRefresh(true);
+   
+  
+
+    setTimeout(() => {
+      setRefresh(false);
+    }, 2000);
   }
-      , []);
+
+  useEffect(() => {
+
+    axios.get(`${BASE_URL}latest/`)
+      .then(res => {
+        setDate(res.data[0].date);
+        setEvent(res.data[0].event);
+      })
+      .catch(err => {
+        console.log(err);                  //clean up function
+      })
+    return () => {
+      setDate();
+    }
+  }
+    , []);
+
 
   return (
 
-    <ScrollView style={styles.container}   >
+    <ScrollView style={styles.container}  
+    
+    refreshControl={
+      <RefreshControl
+        refreshing={refresh}
+        onRefresh={() => pullMe()}
+      />
+    }
+    >
+
 
       <View >
-      
-        {/* <Text style={styles.latest} >Dash Board</Text> */}
-
 
         <View>
-          
+
           {
-           event === '' ? <Text style={styles.wait}  >Loading...</Text>
-            : <Text style={styles.date} >Last updated {event} {"\n"} at {Date(date).slice(3, 21)}  </Text> 
-            
+            event === '' ? <Text style={styles.wait}  >Loading...</Text>
+              : <Text style={styles.date} >Last updated {event} {"\n"} at {Date(date).slice(3, 21)}  </Text>
+
           }
-             
+
         </View>
 
         {
           event === '' ? <Text style={styles.wait}  >Loading...</Text> : <Chart />
         }
 
-
-        <View style={styles.topic} >
-          <Text style={styles.latest} >Total Marks</Text>
-        </View>
-
       </View>
 
-      <View style={styles.post} > 
-        <Marks/>
+
+      <View style={styles.topic} >
+        <Text style={styles.latest} >Total Marks</Text>
       </View>
+
+      <View style={styles.post} >
+        {event === '' ? <Text style={styles.wait}  >Loading...</Text> : <Marks />}
+      </View>
+
+   
+      
 
     </ScrollView>
   )
@@ -67,6 +91,13 @@ const MainPage = () => {
 export default MainPage
 
 const styles = StyleSheet.create({
+
+  reload: {
+    position: 'absolute',
+    top: 11,
+    padding: 20,
+    justifyContent: "space-between",
+  },
 
   latest: {
     textAlign: 'center',
@@ -99,7 +130,7 @@ const styles = StyleSheet.create({
 
 
   post: {
-    
+
     flexDirection: 'column',
     backgroundColor: 'white',
     alignItems: 'center',
