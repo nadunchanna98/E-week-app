@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { View, Text, StyleSheet, FlatList, Image, Dimensions } from 'react-native'
 import axios from 'axios';
 import BASE_URL from '../../Common/BaseURL';
+import Moment from 'moment';
+
 
 const UpComingContainer = () => {
 
@@ -33,9 +35,10 @@ const UpComingContainer = () => {
             <View style={styles.post}>
               <Image style={styles.image} source={{ uri: item.image }} />
               <Text style={styles.event}>{item.event} {item.gender}  {item.type}</Text>
-              <Text style={styles.date}>{
-                Date(item.date).slice(0, 21)
-              }</Text>
+
+              <Text   style={styles.date}  > {Moment(item.date).format('LLLL')} </Text>
+              
+
               <Text style={styles.description}>{item.description}</Text>
               <Text style={styles.date}>{item.location}</Text>
             </View>
@@ -62,7 +65,8 @@ const styles = StyleSheet.create({
     textTransform:  'capitalize',
     fontSize: 22,
     fontWeight: "700",
-    marginBottom: 10
+    marginBottom: 10,
+    textAlign: 'center',
 
   },
 
@@ -70,7 +74,8 @@ const styles = StyleSheet.create({
   date: {
     fontSize: 18,
     fontWeight: "700",
-    marginBottom: 5
+    marginBottom: 5,
+    textAlign: 'center',
   },
 
   description: {
@@ -98,7 +103,7 @@ const styles = StyleSheet.create({
 
   image: {
     width: Dimensions.get('window').width * 0.7,
-    height: Dimensions.get('window').height *0.7 / 3,
+    height: Dimensions.get('window').height * 0.33,
     borderRadius: 20,
     borderWidth: 1,
     marginBottom: 10,

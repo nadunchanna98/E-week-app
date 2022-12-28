@@ -4,7 +4,7 @@ import Chart from './Chart'
 import Marks from './Marks'
 import axios from 'axios';
 import BASE_URL from '../../Common/BaseURL';
-
+import Moment from 'moment';
 
 const MainPage = () => {
 
@@ -60,8 +60,7 @@ const MainPage = () => {
 
           {
             event === '' ? <Text style={styles.wait}  >Loading...</Text>
-              : <Text style={styles.date} >Last updated {event} {"\n"} at {Date(date).slice(3, 21)}  </Text>
-
+              : <Text style={styles.date} >Last updated {event} {"\n"} at {Moment(date).format('LLL')} </Text>
           }
 
         </View>

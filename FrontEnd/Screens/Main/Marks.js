@@ -47,7 +47,7 @@ const Marks = () => {
                     <View style={styles.bag} key={index}>
                         <Text style={styles.team}> {item.team}</Text>
                         <Text style={styles.marks}>  {item.total}</Text>
-                        <Text style={styles.text}> ( Total Marks ) </Text>
+                        <Text style={styles.text}> ( Up to now ) </Text>
 
                     </View>
                 )
@@ -72,10 +72,11 @@ const styles = StyleSheet.create({
         fontSize: 30,
         fontWeight: "700",
         marginBottom: 5,
-        color: 'red',
+        
     },
 
     marks: {
+        color: 'red',
         fontSize: 30,
         fontWeight: "700",
         marginBottom: 5

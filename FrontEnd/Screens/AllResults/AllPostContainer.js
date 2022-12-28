@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import { View, Text, StyleSheet, FlatList, Image , Dimensions , SafeAreaView ,StatusBar } from 'react-native';
+import { View, Text, StyleSheet, FlatList, Image , Dimensions  } from 'react-native';
 import { FontAwesome5  } from '@expo/vector-icons'; 
 import axios from 'axios';
 import BASE_URL from '../../Common/BaseURL';
+import Moment from 'moment';
 
 const AllPostContainer = () => {
 
@@ -37,14 +38,8 @@ const AllPostContainer = () => {
               <Text style={styles.firstN}><FontAwesome5 name="medal" size={20} color="gold" />  {item.firstN} {item.firstT}</Text>
               <Text style={styles.secondN}><FontAwesome5 name="medal" size={20} color="#B2B2B2" />  {item.secondN} {item.secondT}</Text>
               <Text style={styles.thirdN}><FontAwesome5 name="medal" size={20} color="#CD7F32" />  {item.thirdN} {item.thirdT}</Text>
-              <Text style={styles.date}>{
-
-                Date(item.date).slice(0, 21)
-              }
-              </Text>
+              <Text style={styles.date}>{Moment(item.date).format('LLLL')}</Text>
               <Text style={styles.date}>{item.description}</Text>
-
-              {/* <Text style={styles.date}>{item.image}</Text> */}
             </View>
           }
           keyExtractor={item => item._id}
