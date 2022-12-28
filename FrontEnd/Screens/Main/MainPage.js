@@ -1,5 +1,5 @@
-import { View, Text, StyleSheet, ScrollView, Dimensions, TouchableOpacity ,RefreshControl } from 'react-native'
-import React, { useState, useEffect , createContext, useContext } from 'react'
+import { View, Text, StyleSheet, ScrollView, Dimensions ,RefreshControl } from 'react-native'
+import React, { useState, useEffect } from 'react'
 import Chart from './Chart'
 import Marks from './Marks'
 import axios from 'axios';
@@ -17,7 +17,7 @@ const MainPage = () => {
 
     setRefresh(true);
    
-  
+
 
     setTimeout(() => {
       setRefresh(false);

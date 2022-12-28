@@ -1,11 +1,21 @@
 import React, { useState, useEffect } from 'react'
-import { View, Text, StyleSheet, ScrollView, Dimensions } from 'react-native'
+import { View, Text, StyleSheet, ScrollView, Dimensions ,RefreshControl} from 'react-native'
 import axios from 'axios';
 import BASE_URL from '../../Common/BaseURL';
 
 const Marks = () => {
 
     const [marks, setMarks] = useState([]);
+    const [refresh , setRefresh] = useState(false);
+
+
+    const pullMe = () => {
+  
+      setRefresh(true);
+      setTimeout(() => {
+        setRefresh(false);
+      }, 2000);
+    }
 
     useEffect(() => {
 
@@ -25,7 +35,13 @@ const Marks = () => {
 
     return (
 
-        <ScrollView style={styles.container}   >
+        <ScrollView style={styles.container} 
+        refreshControl={
+            <RefreshControl
+              refreshing={refresh}
+              onRefresh={() => pullMe()}
+            />
+          }  >
             {marks.map((item, index) => {
                 return (
                     <View style={styles.bag} key={index}>
