@@ -3,10 +3,7 @@ import React from 'react'
 import { View, Text, StyleSheet, TouchableOpacity, Dimensions, Image ,StatusBar } from 'react-native'
 import Eweek from '../assets/icon.png';
 
-
-
 function TopNavigation({ index, setIndex }) {
-
 
     return (
         <View style={{ ...styles.container, backgroundColor: "#FF1E1E" }}>
@@ -70,17 +67,12 @@ function TopNavigation({ index, setIndex }) {
                 </TouchableOpacity>
             ) : (
 
-                <TouchableOpacity style={styles.right}
-                // onPress={() => }
-                >
+                <TouchableOpacity style={styles.right}  >
                     <Text style={{ ...styles.text, color: "white" }}>
 
 
-                        {/* <MaterialCommunityIcons name="theme-light-dark"
-                            size={20}
-                            color="white" /> */}
                         <AntDesign name="infocirlce" size={24} color="white"   
-                        onPress={() => alert("E-week 2K22 \nFaculty of Engineering \nUniversity of Jaffna \nCreated by Nadun Channa.")}
+                        onPress={() => alert("E-week 2K22 Faculty of Engineering \nUniversity of Jaffna.\nCreated by Nadun Channa.")}
                         />
 
                     </Text>

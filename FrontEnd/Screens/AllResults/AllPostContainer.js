@@ -9,6 +9,7 @@ const AllPostContainer = () => {
 
   const [post, setPost] = useState([]);
 
+
   useEffect(() => {
 
     axios.get(`${BASE_URL}posts`)
@@ -24,11 +25,16 @@ const AllPostContainer = () => {
 
   }, []);
 
+
+
   return (
     <View style={styles.AllPostContainer}>
 
-      <View >
+      <View 
+   
+      >
         <FlatList
+        
           data={post}
           renderItem={({ item }) =>
 
