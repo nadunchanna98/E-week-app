@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { View, Text, StyleSheet, FlatList, Image, Dimensions } from 'react-native'
+import { View, Text, StyleSheet, FlatList, Image, Dimensions, ScrollView, RefreshControl } from 'react-native'
 import axios from 'axios';
 import BASE_URL from '../../Common/BaseURL';
 import Moment from 'moment';
@@ -8,6 +8,32 @@ import Moment from 'moment';
 const UpComingContainer = () => {
 
   const [post, setPost] = useState([]);
+  const [refresh, setRefresh] = useState(false);
+
+  const pullMe = () => {
+
+    setRefresh(true);
+    getData();
+
+    setTimeout(() => {
+      setRefresh(false);
+    }, 4000);
+  }
+
+
+  const getData = () => {
+    axios.get(`${BASE_URL}futureevents`)
+      .then(res => {
+        setPost(res.data);
+      })
+      .catch(err => {
+        console.log(err);
+      })
+    return () => {
+      setPost([]);
+    }
+  }
+
 
   useEffect(() => {
 
@@ -25,27 +51,40 @@ const UpComingContainer = () => {
   }, []);
 
   return (
-    <View style={styles.AllPostContainer}>
 
-      <View >
-        <FlatList
-          data={post}
-          renderItem={({ item }) =>
+    <View  style={styles.AllPostContainer}  >
 
-            <View style={styles.post}>
-              <Image style={styles.image} source={{ uri: item.image }} />
-              <Text style={styles.event}>{item.event} {item.gender}  {item.type}</Text>
+      <FlatList
 
-              <Text   style={styles.date}  > {Moment(item.date).format('LLLL')} </Text>
-              
+        refreshControl={
+          <RefreshControl
+            refreshing={refresh}
+            onRefresh={() => pullMe()}
+          />
 
-              <Text style={styles.description}>{item.description}</Text>
-              <Text style={styles.date}>{item.location}</Text>
-            </View>
-          }
-          keyExtractor={item => item._id}  
-        />
-      </View>
+        }
+
+
+
+
+        data={post}
+        renderItem={({ item }) =>
+
+          <View style={styles.post}>
+            <Image style={styles.image} source={{ uri: item.image }} />
+            <Text style={styles.event}>{item.event} {item.gender}  {item.type}</Text>
+
+            <Text style={styles.date}  > {Moment(item.date).format('LLLL')} </Text>
+
+
+            <Text style={styles.description}>{item.description}</Text>
+            <Text style={styles.date}>{item.location}</Text>
+          </View>
+        }
+        keyExtractor={item => item._id}
+      />
+
+
     </View>
   )
 }
@@ -62,7 +101,7 @@ const styles = StyleSheet.create({
   },
 
   event: {
-    textTransform:  'capitalize',
+    textTransform: 'capitalize',
     fontSize: 22,
     fontWeight: "700",
     marginBottom: 10,
@@ -79,7 +118,7 @@ const styles = StyleSheet.create({
   },
 
   description: {
-    textTransform:  'capitalize',
+    textTransform: 'capitalize',
     fontSize: 15,
     fontWeight: "700",
     marginBottom: 5

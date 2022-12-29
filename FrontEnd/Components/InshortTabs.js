@@ -1,16 +1,16 @@
 import * as React from 'react';
 import {  StyleSheet, useWindowDimensions , SafeAreaView ,StatusBar } from 'react-native';
 import { TabView, SceneMap } from 'react-native-tab-view';
-import AllResults from "../Screens/AllResults/AllResults";
+import AllResultsContainer from "../Screens/AllResults/AllPostContainer";
 import MainPage from "../Screens/Main/MainPage";
-import Upcoming from "../Screens/UpComing/Upcoming";
+import UpComingContainer from "../Screens/UpComing/UpComingContainer";
 import TopNavigation from './TopNavigation';
 
 
 const renderScene = SceneMap({
   first: MainPage,
-  second: AllResults,
-  third: Upcoming
+  second: AllResultsContainer,
+  third: UpComingContainer
 });
 
 export default function TabViewExample() {
