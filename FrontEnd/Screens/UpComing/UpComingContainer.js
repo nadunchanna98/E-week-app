@@ -1,54 +1,13 @@
-import React, { useState, useEffect } from 'react'
+import React, {  useEffect , useContext} from 'react'
 import { View, Text, StyleSheet, FlatList, Image, Dimensions, ScrollView, RefreshControl } from 'react-native'
-import axios from 'axios';
-import BASE_URL from '../../Common/BaseURL';
 import Moment from 'moment';
-
+import { NewContext } from '../../Common/Context';
 
 const UpComingContainer = () => {
 
-  const [post, setPost] = useState([]);
-  const [refresh, setRefresh] = useState(false);
+  const { newPost ,refresh ,pullMe ,getNewPost  } = useContext(NewContext);
 
-  const pullMe = () => {
-
-    setRefresh(true);
-    getData();
-
-    setTimeout(() => {
-      setRefresh(false);
-    }, 4000);
-  }
-
-
-  const getData = () => {
-    axios.get(`${BASE_URL}futureevents`)
-      .then(res => {
-        setPost(res.data);
-      })
-      .catch(err => {
-        console.log(err);
-      })
-    return () => {
-      setPost([]);
-    }
-  }
-
-
-  useEffect(() => {
-
-    axios.get(`${BASE_URL}futureevents`)
-      .then(res => {
-        setPost(res.data);
-      })
-      .catch(err => {
-        console.log(err);                  //clean up function
-      })
-    return () => {
-      setPost([]);
-    }
-
-  }, []);
+  useEffect(() => { getNewPost(); }, []);
 
   return (
 
@@ -64,10 +23,7 @@ const UpComingContainer = () => {
 
         }
 
-
-
-
-        data={post}
+        data={newPost}
         renderItem={({ item }) =>
 
           <View style={styles.post}>

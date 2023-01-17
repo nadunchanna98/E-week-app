@@ -1,33 +1,14 @@
 import { View, Text, StyleSheet, RefreshControl } from 'react-native'
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import Chart from './Chart'
-import axios from 'axios';
-import BASE_URL from '../../Common/BaseURL';
 import Moment from 'moment';
-
+import { NewContext } from '../../Common/Context';
 
 const LastUpdate = () => {
 
-    const [date, setDate] = useState();
-    const [event, setEvent] = useState("");
-    
+    const { date, fetchDate , event } = useContext(NewContext);
 
-    useEffect(() => {
-
-        axios.get(`${BASE_URL}latest/`)
-            .then(res => {
-                setDate(res.data[0].date);
-                setEvent(res.data[0].event);
-            })
-            .catch(err => {
-                console.log(err);                  //clean up function
-            })
-        return () => {
-            setDate();
-        }
-    }
-        , []);
-
+    useEffect(() => { fetchDate(); }, []);
 
 
     return (
@@ -62,9 +43,9 @@ const styles = StyleSheet.create({
         marginTop: 16,
         marginBottom: 16,
         fontFamily: 'sans-serif-light',
-      },
-    
-      wait: {
+    },
+
+    wait: {
         textAlign: 'center',
         fontSize: 20,
         fontWeight: "700",
@@ -72,5 +53,5 @@ const styles = StyleSheet.create({
         marginTop: 16,
         marginBottom: 16,
         fontFamily: 'sans-serif-light',
-      },
-    })    
+    },
+})    

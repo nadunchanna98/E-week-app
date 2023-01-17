@@ -1,53 +1,13 @@
 import { View, Text, StyleSheet, ScrollView, Dimensions, RefreshControl } from 'react-native'
-import React, { useState, useEffect } from 'react'
-import axios from 'axios';
-import BASE_URL from '../../Common/BaseURL';
+import React, { useEffect , useContext  } from 'react'
 import LastUpdate from './LastUpdate';
+import { NewContext } from '../../Common/Context';
 
 const MainPage = () => {
 
-  const [refresh, setRefresh] = useState(false);
-  const [marks, setMarks] = useState([]);
+  const { marks ,refresh ,pullMe ,fetchMarks  } = useContext(NewContext);
 
-  useEffect(() => {
-
-    axios.get(`${BASE_URL}teams/total`)
-      .then(res => {
-        setMarks(res.data);
-      })
-      .catch(err => {
-        console.log(err);                  //clean up function
-      })
-    return () => {
-      setMarks([]);
-    }
-  }
-    , []);
-
-
-  const getData = () => {
-    axios.get(`${BASE_URL}teams/total`)
-      .then(res => {
-        setMarks(res.data);
-      })
-      .catch(err => {
-        console.log(err);
-      })
-    return () => {
-      setMarks([]);
-    }
-
-  }
-
-  const pullMe = () => {
-
-    setRefresh(true);
-    getData();
-
-    setTimeout(() => {
-      setRefresh(false);
-    }, 4000);
-  }
+  useEffect(() => {  fetchMarks(); } , []);
 
 
   return (

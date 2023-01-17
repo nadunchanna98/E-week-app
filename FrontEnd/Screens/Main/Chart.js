@@ -1,22 +1,20 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { Text, View, StyleSheet, Dimensions  } from "react-native";
 import { BarChart } from 'react-native-chart-kit';
-import BASE_URL from '../../Common/BaseURL';
-import axios from 'axios';
 
-
+import { NewContext } from '../../Common/Context';
 
 export default function Chart() {
 
-    const [data1, setData] = useState([]);
+    const { fetchMarks , marks } = useContext(NewContext);
 
     let data = { 
-        labels: data1.map((item, index) => {
+        labels: marks.map((item, index) => {
             return item.team
         }),
         datasets: [
             {
-                data: data1.map((item, index) => {
+                data: marks.map((item, index) => {
                     return (
                         item.total
                     )
@@ -26,33 +24,7 @@ export default function Chart() {
         ]
     };
 
-
-
-    useEffect(() => {
-
-        axios.get(`${BASE_URL}teams/total`)
-            .then(res => {
-                setData(res.data);
-
-            })
-            .catch(err => {
-                console.log(err);                  //clean up function
-            })
-        return () => {
-            setData([]);
-        }
-    }
-        , []);
-
-
-
-
-
-
- 
-
-
-
+    useEffect(() => {  fetchMarks();  }  , []);
 
     return (
 

@@ -1,7 +1,8 @@
 import { StyleSheet,View ,StatusBar } from 'react-native';
+import Context from './Common/Context';
 import InshortTabs from './Components/InshortTabs';
 
-export default function App() {
+function App() {
   return (
       <View style={styles.container}  > 
         <StatusBar  backgroundColor="#000" barStyle="default" />
@@ -9,6 +10,16 @@ export default function App() {
       </View>
   );
 }
+
+export default ()  => {
+  return (
+    <Context>
+      <App />
+    </Context>
+  );
+}
+
+
 
 const styles = StyleSheet.create({
   container: {

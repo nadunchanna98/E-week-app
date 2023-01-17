@@ -1,54 +1,14 @@
-import React, { useState, useEffect } from 'react'
-import { View, Text, StyleSheet, FlatList, Image, Dimensions, ScrollView, RefreshControl } from 'react-native';
+import React, {useEffect , useContext } from 'react'
+import { View, Text, StyleSheet, FlatList, Image, Dimensions, RefreshControl } from 'react-native';
 import { FontAwesome5 } from '@expo/vector-icons';
-import axios from 'axios';
-import BASE_URL from '../../Common/BaseURL';
-import Moment from 'moment';
+import { NewContext } from '../../Common/Context';
 
 const AllPostContainer = () => {
 
-  const [post, setPost] = useState([]);
-  const [refresh, setRefresh] = useState(false);
+  const { post ,refresh ,pullMe ,getPost  } = useContext(NewContext);
 
-  const pullMe = () => {
 
-    setRefresh(true);
-    getData();
-
-    setTimeout(() => {
-      setRefresh(false);
-    }, 4000);
-  }
-
-  const getData = () => {
-    axios.get(`${BASE_URL}posts`)
-      .then(res => {
-        setPost(res.data);
-      })
-      .catch(err => {
-        console.log(err);                  //clean up function
-      })
-    return () => {
-      setPost([]);
-    }
-
-  }
-
-  useEffect(() => {
-
-    axios.get(`${BASE_URL}posts`)
-      .then(res => {
-        setPost(res.data);
-      })
-      .catch(err => {
-        console.log(err);                  //clean up function
-      })
-    return () => {
-      setPost([]);
-    }
-
-  }, []);
-
+  useEffect(() => { getPost();}, []);
 
 
   return (

@@ -6,6 +6,7 @@ import MainPage from "../Screens/Main/MainPage";
 import UpComingContainer from "../Screens/UpComing/UpComingContainer";
 import TopNavigation from './TopNavigation';
 
+import { NewContext } from '../Common/Context';
 
 const renderScene = SceneMap({
   first: MainPage,
@@ -16,7 +17,9 @@ const renderScene = SceneMap({
 export default function TabViewExample() {
   const layout = useWindowDimensions();
 
-  const [index, setIndex] = React.useState(0);
+  const {index, setIndex} = React.useContext(NewContext);
+ 
+
   const [routes] = React.useState([
     { key: 'first', title: 'First' },
     { key: 'second', title: 'Second' },
