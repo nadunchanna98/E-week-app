@@ -7,9 +7,9 @@ You can find using this app,
 
 ◉ Total marks of each team directly and Visually using graph view .
 
-◉ Results of Finished events ( Winners & etc.. ) 
+◉ Results of Finished events ( Winners & more) 
 
-◉ Details about upcoming Events ( date , Location & etc .. )
+◉ Details about upcoming Events ( date , Location & more)
 
 ◉ Last updated Time and Date 
 
