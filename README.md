@@ -1,4 +1,5 @@
 # E-week-app
+React native , Nodejs , Express , MongoDB
 
 E week is the biggest event of my faculty.
 I built this app for this event.
