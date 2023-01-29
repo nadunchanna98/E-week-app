@@ -1,7 +1,6 @@
 # E-week-app
 
 E week is the biggest event of my faculty.
-
 I built this app for this event.
 
 You can find using this app, 
